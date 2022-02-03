@@ -1,6 +1,16 @@
 import React from 'react';
-import s from './App.module.scss';
+import { Routes, Route } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import { LandingLayout } from './components';
 
 export const App: React.FC = () => {
-  return <div className={s.div}>s</div>;
+  return (
+    <ChakraProvider>
+      <LandingLayout>
+        <Routes>
+          <Route path="/" element={<div>awda</div>} />
+        </Routes>
+      </LandingLayout>
+    </ChakraProvider>
+  );
 };
