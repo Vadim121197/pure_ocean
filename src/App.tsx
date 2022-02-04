@@ -2,6 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { LandingLayout } from './components';
+import { routes } from './constants';
+import { Home } from './pages';
 
 const theme = extendTheme({
   fonts: {
@@ -15,7 +17,7 @@ export const App: React.FC = () => {
     <ChakraProvider theme={theme}>
       <LandingLayout>
         <Routes>
-          <Route path="/" element={<div>awda</div>} />
+          <Route path={routes.MAIN} element={<Home />} />
         </Routes>
       </LandingLayout>
     </ChakraProvider>

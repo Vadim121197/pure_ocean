@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flex, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Flex, useBreakpointValue } from '@chakra-ui/react';
 import { Header, Sidebar } from '../../containers';
 
 export type LandingLayoutProps = {
@@ -21,12 +21,13 @@ export const LandingLayout: React.FC<LandingLayoutProps> = (props) => {
   const variants = useBreakpointValue({ base: smVariant, md: smVariant, lg: mdVariant });
 
   const toggleSidebar = () => setSidebarOpen((state) => !state);
+
   return (
     <Flex direction="row" {...props}>
       <Sidebar variant={variants?.navigation} isOpen={isSidebarOpen} onClose={toggleSidebar} />
       <Flex direction="column" {...props} w="100%">
         <Header showSidebarButton={variants?.navigationButton} onShowSidebar={toggleSidebar} />
-        {children}
+        <Box marginLeft={!variants?.navigationButton ? '260px' : '0px'}>{children}</Box>
       </Flex>
     </Flex>
   );

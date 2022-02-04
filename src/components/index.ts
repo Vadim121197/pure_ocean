@@ -1,2 +1,3 @@
 export * from './layouts';
 export * from './SidebarLink';
+export * from './BoxWithText';

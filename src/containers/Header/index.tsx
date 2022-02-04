@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
     <Flex
       w="100%"
       bg={mainBackground}
-      h="80px"
+      h="10vh"
       alignItems="center"
       justifyContent="space-between"
       {...props}
