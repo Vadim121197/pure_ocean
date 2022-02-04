@@ -1,11 +1,18 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { LandingLayout } from './components';
+
+const theme = extendTheme({
+  fonts: {
+    heading: 'Arial Rounded MT Bold',
+    body: 'Arial Rounded MT Bold',
+  },
+});
 
 export const App: React.FC = () => {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <LandingLayout>
         <Routes>
           <Route path="/" element={<div>awda</div>} />

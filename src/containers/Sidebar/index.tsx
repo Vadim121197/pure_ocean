@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Drawer,
   DrawerOverlay,
   DrawerCloseButton,
@@ -8,8 +7,9 @@ import {
   DrawerContent,
   VStack,
 } from '@chakra-ui/react';
-import { IconLogo } from '../../assets/icons';
-import { mainBackground } from '../../constants';
+import { IconDocs, IconHistory, IconHome, IconLogo, IconRuby } from '../../assets/icons';
+import { SidebarLink } from '../../components';
+import { burgerBackground, mainBackground, routes } from '../../constants';
 
 export type SidebarProps = {
   onClose: () => void;
@@ -17,35 +17,40 @@ export type SidebarProps = {
   variant?: 'drawer' | 'sidebar';
 };
 
-const SidebarContent: React.FC<{ onClose: SidebarProps['onClose'] }> = ({ onClose }) => (
-  <VStack>
+const SidebarContent: React.FC = () => (
+  <VStack align="flex-start">
     <Box w="200px" marginBottom="70px">
       <IconLogo />
     </Box>
-    <Button onClick={onClose} w="100%">
-      Home
-    </Button>
-    <Button onClick={onClose} w="100%">
-      About
-    </Button>
-    <Button onClick={onClose} w="100%">
-      Contact
-    </Button>
+    <SidebarLink to={routes.MAIN} text="Home" logo={<IconHome />} />
+    <SidebarLink to={routes.SHARE} text="Get $PShare" logo={<IconRuby />} />
+    <SidebarLink to={routes.REWARD} text="Get Reward" logo={<IconRuby />} />
+    <SidebarLink to={routes.BOND} text="Get $PBond" logo={<IconRuby />} />
+    <SidebarLink to={routes.HISTORY} text="History" logo={<IconHistory />} />
+    <SidebarLink to={routes.DOCS} text="Docs" logo={<IconDocs />} />
   </VStack>
 );
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) => {
   return variant === 'sidebar' ? (
     <Box position="fixed" left={0} p={5} w="250px" top={0} h="100%" bg={mainBackground}>
-      <SidebarContent onClose={onClose} />
+      <SidebarContent />
     </Box>
   ) : (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay>
         <DrawerContent>
-          <DrawerCloseButton />
+          <DrawerCloseButton
+            colorScheme="whiteAlpha"
+            bg={burgerBackground}
+            color={mainBackground}
+            my="5px"
+            _hover={{
+              backgroundColor: 'gray',
+            }}
+          />
           <DrawerBody bg={mainBackground}>
-            <SidebarContent onClose={onClose} />
+            <SidebarContent />
           </DrawerBody>
         </DrawerContent>
       </DrawerOverlay>
