@@ -1,13 +1,13 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Flex, IconButton, Image, Text, Box } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { burgerBackground, mainBackground } from '../../constants';
-import { useMetaMask } from '../../hooks';
 import ImageRuby from '../../assets/images/ruby.png';
 import ImageShip from '../../assets/images/ship.png';
 import ImageBasket from '../../assets/images/basket.png';
 import { ConnectAddress, ConnectButton } from '../../components';
+import { rpcService } from '../../services';
 
 export type HeaderProps = {
   onShowSidebar: () => void;
@@ -33,7 +33,20 @@ const headerImages = [
 ];
 
 export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar }) => {
-  const { userAddress, deepLink, connect, isMobileDevice } = useMetaMask();
+  const [userAddress, setUserAddress] = useState<string>('');
+
+  const connect = async () => {
+    rpcService
+      .connectToWallet()
+      .then((address: string | undefined) => address && setUserAddress(address));
+  };
+
+  useEffect(() => {
+    rpcService
+      .checkIfWalletIsConnected()
+      .then((address: string | undefined) => address && setUserAddress(address));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Flex w="100%" bg={mainBackground} h="10vh" alignItems="center" justifyContent="space-between">
@@ -64,13 +77,7 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
         </Flex>
       )}
       {userAddress ? (
-        isMobileDevice() ? (
-          <a href={deepLink}>
-            <button>Connect</button>
-          </a>
-        ) : (
-          <ConnectAddress userAddress={userAddress} />
-        )
+        <ConnectAddress userAddress={userAddress} />
       ) : (
         <ConnectButton onClick={connect} />
       )}
