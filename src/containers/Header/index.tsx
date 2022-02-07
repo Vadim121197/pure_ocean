@@ -1,10 +1,13 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
-import { Button, Flex, IconButton, Image, Text, Box } from '@chakra-ui/react';
+import { Flex, IconButton, Image, Text, Box } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { burgerBackground, mainBackground } from '../../constants';
+import { useMetaMask } from '../../hooks';
 import ImageRuby from '../../assets/images/ruby.png';
 import ImageShip from '../../assets/images/ship.png';
 import ImageBasket from '../../assets/images/basket.png';
+import { ConnectAddress, ConnectButton } from '../../components';
 
 export type HeaderProps = {
   onShowSidebar: () => void;
@@ -29,17 +32,11 @@ const headerImages = [
   },
 ];
 
-export const Header: React.FC<HeaderProps> = (props) => {
-  const { showSidebarButton = true, onShowSidebar } = props;
+export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar }) => {
+  const { userAddress, deepLink, connect, isMobileDevice } = useMetaMask();
+
   return (
-    <Flex
-      w="100%"
-      bg={mainBackground}
-      h="10vh"
-      alignItems="center"
-      justifyContent="space-between"
-      {...props}
-    >
+    <Flex w="100%" bg={mainBackground} h="10vh" alignItems="center" justifyContent="space-between">
       {showSidebarButton ? (
         <IconButton
           icon={<HamburgerIcon w={8} h={8} />}
@@ -55,29 +52,28 @@ export const Header: React.FC<HeaderProps> = (props) => {
         <Box width="260px" />
       )}
       {!showSidebarButton && (
-        <Flex w="60%" justifyContent="space-around" {...props}>
-          {headerImages.map((i) => {
-            return (
-              <Flex alignItems="center">
-                <Image src={i.image} alt="Ruby" w="35px" />
-                <Text fontSize="25px" color="white" paddingLeft="10px">
-                  {i.value}
-                </Text>
-              </Flex>
-            );
-          })}
+        <Flex w="60%" justifyContent="space-around">
+          {headerImages.map((i) => (
+            <Flex alignItems="center" key={i.id}>
+              <Image src={i.image} alt="Ruby" w="35px" />
+              <Text fontSize="25px" color="white" paddingLeft="10px">
+                {i.value}
+              </Text>
+            </Flex>
+          ))}
         </Flex>
       )}
-      <Button
-        bg="#EFAE2E"
-        height="40px"
-        border="none"
-        mx="30px"
-        fontSize={['10px', '15px', '20px']}
-        px="10px"
-      >
-        Connect Wallet
-      </Button>
+      {userAddress ? (
+        isMobileDevice() ? (
+          <a href={deepLink}>
+            <button>Connect</button>
+          </a>
+        ) : (
+          <ConnectAddress userAddress={userAddress} />
+        )
+      ) : (
+        <ConnectButton onClick={connect} />
+      )}
     </Flex>
   );
 };
