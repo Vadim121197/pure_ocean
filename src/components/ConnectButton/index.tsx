@@ -1,5 +1,6 @@
 import { Button } from '@chakra-ui/react';
 import React from 'react';
+import { darkBlue, disableText, gold, goldDisabled, goldHover, goldPressed } from '../../constants';
 
 export type ConnectButtonProps = {
   onClick: () => void;
@@ -8,15 +9,18 @@ export type ConnectButtonProps = {
 export const ConnectButton: React.FC<ConnectButtonProps> = ({ onClick }) => {
   return (
     <Button
-      bg="#EFAE2E"
-      height="40px"
-      border="none"
+      bg={gold}
+      borderRadius="5px"
       mx="30px"
-      fontSize={['10px', '15px', '20px']}
-      px="10px"
+      fontSize="18px"
+      p="20px 10px"
       onClick={onClick}
+      color={darkBlue}
+      _hover={{ bg: goldHover }}
+      _active={{ bg: goldPressed, borderColor: 'red' }}
+      _disabled={{ bg: goldDisabled, color: disableText }}
     >
-      Connect Wallet
+      Connect wallet
     </Button>
   );
 };

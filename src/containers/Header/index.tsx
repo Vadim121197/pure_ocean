@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Flex, IconButton, Image, Text, Box } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { burgerBackground, mainBackground } from '../../constants';
+import { burgerBackground, darkBlue } from '../../constants';
 import ImageRuby from '../../assets/images/ruby.png';
 import ImageShip from '../../assets/images/ship.png';
 import ImageBasket from '../../assets/images/basket.png';
@@ -36,9 +36,9 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
   const [userAddress, setUserAddress] = useState<string>('');
 
   const connect = async () => {
-    rpcService
-      .connectToWallet()
-      .then((address: string | undefined) => address && setUserAddress(address));
+    // rpcService
+    //   .connectToWallet()
+    //   .then((address: string | undefined) => address && setUserAddress(address));
   };
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
   }, []);
 
   return (
-    <Flex w="100%" bg={mainBackground} h="10vh" alignItems="center" justifyContent="space-between">
+    <Flex w="100%" bg={darkBlue} h="85px" alignItems="center" justifyContent="space-between">
       {showSidebarButton ? (
         <IconButton
           icon={<HamburgerIcon w={8} h={8} />}
@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
           aria-label="Search database"
           bg={burgerBackground}
           mx="30px"
-          color={mainBackground}
+          color={darkBlue}
         />
       ) : (
         <Box width="260px" />
@@ -69,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
           {headerImages.map((i) => (
             <Flex alignItems="center" key={i.id}>
               <Image src={i.image} alt="Ruby" w="35px" />
-              <Text fontSize="25px" color="white" paddingLeft="10px">
+              <Text fontSize="24px" color="white" paddingLeft="10px">
                 {i.value}
               </Text>
             </Flex>

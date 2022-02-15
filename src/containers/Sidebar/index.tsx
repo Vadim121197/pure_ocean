@@ -7,9 +7,9 @@ import {
   DrawerContent,
   VStack,
 } from '@chakra-ui/react';
-import { IconDocs, IconHistory, IconHome, IconLogo, IconRuby } from '../../assets/icons';
+import { IconDocs, IconHistory, IconHome, IconLogoHeader, IconRuby } from '../../assets/icons';
 import { SidebarLink } from '../../components';
-import { burgerBackground, mainBackground, routes } from '../../constants';
+import { burgerBackground, darkBlue, routes } from '../../constants';
 
 export type SidebarProps = {
   onClose: () => void;
@@ -20,7 +20,7 @@ export type SidebarProps = {
 const SidebarContent: React.FC = () => (
   <VStack align="flex-start">
     <Box w="200px" marginBottom="70px">
-      <IconLogo />
+      <IconLogoHeader />
     </Box>
     <SidebarLink to={routes.MAIN} text="Home" logo={<IconHome />} />
     <SidebarLink to={routes.SHARE} text="Get $PShare" logo={<IconRuby />} />
@@ -33,7 +33,7 @@ const SidebarContent: React.FC = () => (
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) => {
   return variant === 'sidebar' ? (
-    <Box position="fixed" left={0} p={5} w="250px" top={0} h="100%" bg={mainBackground}>
+    <Box position="fixed" left={0} p={5} w="250px" top={0} h="100%" bg={darkBlue}>
       <SidebarContent />
     </Box>
   ) : (
@@ -43,13 +43,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) =>
           <DrawerCloseButton
             colorScheme="whiteAlpha"
             bg={burgerBackground}
-            color={mainBackground}
+            color={darkBlue}
             my="5px"
             _hover={{
               backgroundColor: 'gray',
             }}
           />
-          <DrawerBody bg={mainBackground}>
+          <DrawerBody bg={darkBlue}>
             <SidebarContent />
           </DrawerBody>
         </DrawerContent>

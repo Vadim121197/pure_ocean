@@ -12,3 +12,7 @@ import { ReactComponent as LogoDocs } from './docs.svg';
 export const IconDocs = (props: React.SVGProps<SVGSVGElement>) => <LogoDocs {...props} />;
 import { ReactComponent as LogoHistory } from './history.svg';
 export const IconHistory = (props: React.SVGProps<SVGSVGElement>) => <LogoHistory {...props} />;
+import { ReactComponent as LogoHeaderIcon } from './logo_header_pureocean.svg';
+export const IconLogoHeader = (props: React.SVGProps<SVGSVGElement>) => (
+  <LogoHeaderIcon {...props} />
+);
