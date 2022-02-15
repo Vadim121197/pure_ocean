@@ -1,13 +1,11 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
-import { Flex, IconButton, Image, Text, Box } from '@chakra-ui/react';
+import { Flex, IconButton, Text, Box } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { burgerBackground, darkBlue } from '../../constants';
-import ImageRuby from '../../assets/images/ruby.png';
-import ImageShip from '../../assets/images/ship.png';
-import ImageBasket from '../../assets/images/basket.png';
 import { ConnectAddress, ConnectButton } from '../../components';
 import { rpcService } from '../../services';
+import { IconBasket, IconRuby, IconShip } from '../../assets/icons';
 
 export type HeaderProps = {
   onShowSidebar: () => void;
@@ -16,18 +14,18 @@ export type HeaderProps = {
 
 const headerImages = [
   {
-    image: ImageRuby,
-    value: 123123,
+    image: <IconRuby />,
+    value: 0,
     id: 1,
   },
   {
-    image: ImageShip,
-    value: 1231212333,
+    image: <IconShip />,
+    value: 0,
     id: 2,
   },
   {
-    image: ImageBasket,
-    value: 12312,
+    image: <IconBasket />,
+    value: 0,
     id: 3,
   },
 ];
@@ -68,8 +66,8 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
         <Flex w="60%" justifyContent="space-around">
           {headerImages.map((i) => (
             <Flex alignItems="center" key={i.id}>
-              <Image src={i.image} alt="Ruby" w="35px" />
-              <Text fontSize="24px" color="white" paddingLeft="10px">
+              {i.image}
+              <Text fontSize="24px" color="white" paddingLeft="10px" fontWeight="700">
                 {i.value}
               </Text>
             </Flex>

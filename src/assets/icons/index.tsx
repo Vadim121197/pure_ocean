@@ -2,8 +2,6 @@
 /* eslint-disable import/first */
 import React from 'react';
 
-import { ReactComponent as LogoIcon } from './logo.svg';
-export const IconLogo = (props: React.SVGProps<SVGSVGElement>) => <LogoIcon {...props} />;
 import { ReactComponent as LogoRuby } from './ruby.svg';
 export const IconRuby = (props: React.SVGProps<SVGSVGElement>) => <LogoRuby {...props} />;
 import { ReactComponent as LogoHome } from './home.svg';
@@ -16,3 +14,7 @@ import { ReactComponent as LogoHeaderIcon } from './logo_header_pureocean.svg';
 export const IconLogoHeader = (props: React.SVGProps<SVGSVGElement>) => (
   <LogoHeaderIcon {...props} />
 );
+import { ReactComponent as LogoShip } from './ship.svg';
+export const IconShip = (props: React.SVGProps<SVGSVGElement>) => <LogoShip {...props} />;
+import { ReactComponent as LogoBasket } from './basket.svg';
+export const IconBasket = (props: React.SVGProps<SVGSVGElement>) => <LogoBasket {...props} />;
