@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import './style/global.css';
+import 'focus-visible/dist/focus-visible';
 
 ReactDOM.render(
   <Router>

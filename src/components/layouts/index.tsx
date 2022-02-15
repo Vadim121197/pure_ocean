@@ -23,11 +23,11 @@ export const LandingLayout: React.FC<LandingLayoutProps> = (props) => {
   const toggleSidebar = () => setSidebarOpen((state) => !state);
 
   return (
-    <Flex direction="row" {...props}>
-      <Sidebar variant={variants?.navigation} isOpen={isSidebarOpen} onClose={toggleSidebar} />
-      <Flex direction="column" {...props} w="100%">
-        <Header showSidebarButton={variants?.navigationButton} onShowSidebar={toggleSidebar} />
-        <Box marginLeft={!variants?.navigationButton ? '260px' : '0px'}>{children}</Box>
+    <Flex direction="column" {...props}>
+      <Header showSidebarButton={variants?.navigationButton} onShowSidebar={toggleSidebar} />
+      <Flex direction="row" {...props}>
+        <Sidebar variant={variants?.navigation} isOpen={isSidebarOpen} onClose={toggleSidebar} />
+        <Box w="100%">{children}</Box>
       </Flex>
     </Flex>
   );

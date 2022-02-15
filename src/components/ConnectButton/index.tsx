@@ -11,7 +11,7 @@ export const ConnectButton: React.FC<ConnectButtonProps> = ({ onClick }) => {
     <Button
       bg={gold}
       borderRadius="5px"
-      mx="30px"
+      mr="50px"
       fontSize="18px"
       p="20px 10px"
       onClick={onClick}

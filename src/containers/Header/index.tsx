@@ -1,37 +1,37 @@
 /* eslint-disable no-nested-ternary */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Flex, IconButton, Text, Box } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { burgerBackground, darkBlue } from '../../constants';
-import { ConnectAddress, ConnectButton } from '../../components';
-import { rpcService } from '../../services';
-import { IconBasket, IconRuby, IconShip } from '../../assets/icons';
+import { ConnectButton } from '../../components';
+// import { rpcService } from '../../services';
+import { IconBasket, IconLogoHeader, IconRuby, IconShip } from '../../assets/icons';
 
 export type HeaderProps = {
   onShowSidebar: () => void;
   showSidebarButton?: boolean;
 };
 
-const headerImages = [
+export const headerImages = [
   {
     image: <IconRuby />,
-    value: 0,
+    value: 1231231,
     id: 1,
   },
   {
     image: <IconShip />,
-    value: 0,
+    value: 123,
     id: 2,
   },
   {
     image: <IconBasket />,
-    value: 0,
+    value: 123123,
     id: 3,
   },
 ];
 
 export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar }) => {
-  const [userAddress, setUserAddress] = useState<string>('');
+  // const [userAddress, setUserAddress] = useState<string>('');
 
   const connect = async () => {
     // rpcService
@@ -40,9 +40,9 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
   };
 
   useEffect(() => {
-    rpcService
-      .checkIfWalletIsConnected()
-      .then((address: string | undefined) => address && setUserAddress(address));
+    // rpcService
+    //   .checkIfWalletIsConnected()
+    //   .then((address: string | undefined) => address && setUserAddress(address));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -60,7 +60,9 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
           color={darkBlue}
         />
       ) : (
-        <Box width="260px" />
+        <Box ml="50px">
+          <IconLogoHeader />
+        </Box>
       )}
       {!showSidebarButton && (
         <Flex w="60%" justifyContent="space-around">
@@ -74,11 +76,11 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
           ))}
         </Flex>
       )}
-      {userAddress ? (
+      {/* {userAddress ? (
         <ConnectAddress userAddress={userAddress} />
-      ) : (
-        <ConnectButton onClick={connect} />
-      )}
+      ) : ( */}
+      <ConnectButton onClick={connect} />
+      {/* )} */}
     </Flex>
   );
 };

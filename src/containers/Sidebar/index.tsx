@@ -6,8 +6,11 @@ import {
   DrawerBody,
   DrawerContent,
   VStack,
+  Flex,
+  Text,
 } from '@chakra-ui/react';
-import { IconDocs, IconHistory, IconHome, IconLogoHeader, IconRuby } from '../../assets/icons';
+import { headerImages } from '..';
+import { IconDocs, IconHistory, IconLogoHeader, IconRuby } from '../../assets/icons';
 import { SidebarLink } from '../../components';
 import { burgerBackground, darkBlue, routes } from '../../constants';
 
@@ -18,11 +21,8 @@ export type SidebarProps = {
 };
 
 const SidebarContent: React.FC = () => (
-  <VStack align="flex-start">
-    <Box w="200px" marginBottom="70px">
-      <IconLogoHeader />
-    </Box>
-    <SidebarLink to={routes.MAIN} text="Home" logo={<IconHome />} />
+  <VStack align="flex-start" mt="50px">
+    <SidebarLink to={routes.MAIN} text="Home" logo={<IconDocs />} />
     <SidebarLink to={routes.SHARE} text="Get $PShare" logo={<IconRuby />} />
     <SidebarLink to={routes.REWARD} text="Get Reward" logo={<IconRuby />} />
     <SidebarLink to={routes.BOND} text="Get $PBond" logo={<IconRuby />} />
@@ -33,8 +33,18 @@ const SidebarContent: React.FC = () => (
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) => {
   return variant === 'sidebar' ? (
-    <Box position="fixed" left={0} p={5} w="250px" top={0} h="100%" bg={darkBlue}>
+    <Box w="355px" bg={darkBlue} pl="50px">
       <SidebarContent />
+      <Flex flexDir="column" mt="70px">
+        {headerImages.map((i) => (
+          <Flex alignItems="center" key={i.id} pb="20px">
+            {i.image}
+            <Text fontSize="18px" color="white" paddingLeft="10px" fontWeight="400">
+              {i.value} USDC
+            </Text>
+          </Flex>
+        ))}
+      </Flex>
     </Box>
   ) : (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
