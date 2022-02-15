@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
   }, []);
 
   return (
-    <Flex w="100%" bg={darkBlue} h="85px" alignItems="center" justifyContent="space-between">
+    <Flex w="100%" bg={darkBlue} h="100%" alignItems="center" justifyContent="space-between">
       {showSidebarButton ? (
         <IconButton
           icon={<HamburgerIcon w={8} h={8} />}
