@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { Flex, IconButton, Text, Box } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { burgerBackground, darkBlue } from '../../constants';
+import { lightBlue, darkBlue } from '../../constants';
 import { ConnectButton } from '../../components';
 // import { rpcService } from '../../services';
 import { IconBasket, IconLogoHeader, IconRuby, IconShip } from '../../assets/icons';
@@ -55,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
           variant="solid"
           onClick={onShowSidebar}
           aria-label="Search database"
-          bg={burgerBackground}
+          bg={lightBlue}
           mx="30px"
           color={darkBlue}
         />

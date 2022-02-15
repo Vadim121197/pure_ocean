@@ -30,7 +30,15 @@ export const LandingLayout: React.FC<LandingLayoutProps> = (props) => {
       </Box>
       <Flex direction="row" flex="1">
         <Sidebar variant={variants?.navigation} isOpen={isSidebarOpen} onClose={toggleSidebar} />
-        <Box w="100%" bgImage={background} flex="1">
+        <Box
+          w="100%"
+          minHeight="91vh"
+          bgImage={background}
+          bgRepeat="no-repeat"
+          bgSize="cover"
+          bgCo
+          flex="1"
+        >
           {children}
         </Box>
       </Flex>

@@ -12,7 +12,7 @@ import {
 import { headerImages } from '..';
 import { IconDocs, IconHistory, IconLogoHeader, IconRuby } from '../../assets/icons';
 import { SidebarLink } from '../../components';
-import { burgerBackground, darkBlue, routes } from '../../constants';
+import { lightBlue, darkBlue, routes } from '../../constants';
 
 export type SidebarProps = {
   onClose: () => void;
@@ -52,7 +52,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) =>
         <DrawerContent>
           <DrawerCloseButton
             colorScheme="whiteAlpha"
-            bg={burgerBackground}
+            bg={lightBlue}
             color={darkBlue}
             my="5px"
             _hover={{
