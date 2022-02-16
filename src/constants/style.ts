@@ -5,3 +5,6 @@ export const goldHover = '#D99818';
 export const goldPressed = '#C58200';
 export const goldDisabled = '#CACACA';
 export const disableText = '#686868';
+export const blueHover = '#04BFF5';
+export const bluePressed = '#22CDFF';
+export const white = '#FFFFFF';

@@ -36,7 +36,6 @@ export const LandingLayout: React.FC<LandingLayoutProps> = (props) => {
           bgImage={background}
           bgRepeat="no-repeat"
           bgSize="cover"
-          bgCo
           flex="1"
         >
           {children}

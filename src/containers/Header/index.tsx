@@ -2,10 +2,10 @@
 import React, { useEffect } from 'react';
 import { Flex, IconButton, Text, Box } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { lightBlue, darkBlue } from '../../constants';
-import { ConnectButton } from '../../components';
+import { lightBlue, darkBlue, gold, goldHover, goldPressed, goldDisabled } from '../../constants';
 // import { rpcService } from '../../services';
 import { IconBasket, IconLogoHeader, IconRuby, IconShip } from '../../assets/icons';
+import { Button } from '../../components';
 
 export type HeaderProps = {
   onShowSidebar: () => void;
@@ -79,7 +79,19 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
       {/* {userAddress ? (
         <ConnectAddress userAddress={userAddress} />
       ) : ( */}
-      <ConnectButton onClick={connect} />
+      {/* <ConnectButton onClick={connect} /> */}
+      <Box mr="50px">
+        <Button
+          text="Connect wallet"
+          px="10px"
+          colors={{
+            main: gold,
+            hover: goldHover,
+            active: goldPressed,
+            disabled: goldDisabled,
+          }}
+        />
+      </Box>
       {/* )} */}
     </Flex>
   );

@@ -1,6 +1,35 @@
 import React from 'react';
-import { Button, Flex, Text } from '@chakra-ui/react';
-import { darkBlue, lightBlue } from '../../constants';
+import { Box, Flex, Text } from '@chakra-ui/react';
+import { blueHover, bluePressed, darkBlue, goldDisabled, lightBlue, white } from '../../constants';
+import { Button, PriceCard } from '../../components';
+import { IconBasket, IconRuby, IconShip } from '../../assets/icons';
+
+const prices = [
+  {
+    header: 'Pure',
+    icon: <IconRuby width="55px" height="55px" />,
+    currentPrice: '0.9850',
+    marketCap: '123456789',
+    dynamicPrice: '123456789',
+    totalSupply: '123456789',
+  },
+  {
+    header: 'Pure',
+    icon: <IconShip width="55px" height="55px" />,
+    currentPrice: '0.9850',
+    marketCap: '123456789',
+    dynamicPrice: '123456789',
+    totalSupply: '123456789',
+  },
+  {
+    header: 'Pure',
+    icon: <IconBasket width="55px" height="55px" />,
+    currentPrice: '0.9850',
+    marketCap: '123456789',
+    dynamicPrice: '123456789',
+    totalSupply: '123456789',
+  },
+];
 
 export const Home: React.FC = () => {
   return (
@@ -11,7 +40,7 @@ export const Home: React.FC = () => {
       justifyContent="space-between"
       px="50px"
       pt="50px"
-      pb="100px"
+      pb="70px"
     >
       <Flex
         flexDirection="column"
@@ -19,7 +48,7 @@ export const Home: React.FC = () => {
         bgColor={darkBlue}
         w="100%"
         py="20px"
-        borderRadius="5px"
+        borderRadius="12px"
       >
         <Text fontSize="24px" fontWeight="700" color="white" mb="15px">
           0000.00 Pounds of plastic from the oceans
@@ -28,8 +57,10 @@ export const Home: React.FC = () => {
           Stack PShare and earn rewards in the first algorithmic stablecoin that save the Oceans
         </Text>
       </Flex>
-      <Flex alignItems="center" bgColor={darkBlue} w="100%" h="328px" py="20px" borderRadius="5px">
-        asd
+      <Flex w="100%" flexWrap="wrap" justifyContent="space-between" my="50px">
+        <PriceCard w="calc(1/3*100% - (1 - 1/3)*20px)" minW="300px" m="0 0 20px" />
+        <PriceCard w="calc(1/3*100% - (1 - 1/3)*20px)" minW="300px" m="0 0 20px" />
+        <PriceCard w="calc(1/3*100% - (1 - 1/3)*20px)" minW="300px" m="0 0 20px" />
       </Flex>
       <Text
         fontSize="18px"
@@ -39,54 +70,38 @@ export const Home: React.FC = () => {
         bgColor={darkBlue}
         w="100%"
         textAlign="center"
-        borderRadius="5px"
+        borderRadius="6px"
+        mb="25px"
       >
-        Dynamic number: $123.456.789
+        Dynamic number: $123.456.78
       </Text>
-      <Flex w="100%">
-        <Button
-          w="50%"
-          fontSize="18px"
-          fontWeight="700"
-          bg={lightBlue}
-          color={darkBlue}
-          borderRadius="5px"
-          mr="25px"
-        >
-          Get $PShare ️
-        </Button>
-        <Button
-          w="50%"
-          fontSize="18px"
-          fontWeight="700"
-          bg={lightBlue}
-          color={darkBlue}
-          borderRadius="5px"
-        >
-          Stack $PShare ️️
-        </Button>
+      <Flex w="100%" alignItems="center" justifyContent="center">
+        <Box mr="15px">
+          <Button
+            text="Get $PShare"
+            px="20px"
+            colors={{
+              main: lightBlue,
+              hover: blueHover,
+              active: bluePressed,
+              disabled: goldDisabled,
+            }}
+          />
+        </Box>
+        <Box>
+          <Button
+            text="Stack $PShare"
+            px="20px"
+            border="1px solid #08AAD9"
+            colors={{
+              main: white,
+              hover: white,
+              active: white,
+              disabled: white,
+            }}
+          />
+        </Box>
       </Flex>
-      {/* <BoxWithText text="Total Value Locked : $929,191,416" />
-      <Flex w="100%" alignItems="center" justifyContent="space-between">
-        <Button
-          fontSize={['15px', null, '35px']}
-          bg={burgerBackground}
-          color="white"
-          w="45%"
-          p="50px 0"
-        >
-          Get $PShare
-        </Button>
-        <Button
-          fontSize={['15px', null, '35px']}
-          bg={burgerBackground}
-          color="white"
-          w="45%"
-          p="50px 0"
-        >
-          Stack $PShare
-        </Button> */}
-      {/* </Flex> */}
     </Flex>
   );
 };
