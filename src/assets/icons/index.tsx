@@ -18,3 +18,5 @@ import { ReactComponent as LogoShip } from './ship.svg';
 export const IconShip = (props: React.SVGProps<SVGSVGElement>) => <LogoShip {...props} />;
 import { ReactComponent as LogoBasket } from './basket.svg';
 export const IconBasket = (props: React.SVGProps<SVGSVGElement>) => <LogoBasket {...props} />;
+import { ReactComponent as LogoMenu } from './menu.svg';
+export const IconMenu = (props: React.SVGProps<SVGSVGElement>) => <LogoMenu {...props} />;

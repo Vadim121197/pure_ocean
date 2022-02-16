@@ -4,7 +4,7 @@ import { Flex, IconButton, Text, Box } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { lightBlue, darkBlue, gold, goldHover, goldPressed, goldDisabled } from '../../constants';
 // import { rpcService } from '../../services';
-import { IconBasket, IconLogoHeader, IconRuby, IconShip } from '../../assets/icons';
+import { IconBasket, IconLogoHeader, IconMenu, IconRuby, IconShip } from '../../assets/icons';
 import { Button } from '../../components';
 
 export type HeaderProps = {
@@ -15,17 +15,17 @@ export type HeaderProps = {
 export const headerImages = [
   {
     image: <IconRuby />,
-    value: 1231231,
+    value: 0,
     id: 1,
   },
   {
     image: <IconShip />,
-    value: 123,
+    value: 0,
     id: 2,
   },
   {
     image: <IconBasket />,
-    value: 123123,
+    value: 0,
     id: 3,
   },
 ];
@@ -48,51 +48,67 @@ export const Header: React.FC<HeaderProps> = ({ showSidebarButton, onShowSidebar
 
   return (
     <Flex w="100%" bg={darkBlue} h="100%" alignItems="center" justifyContent="space-between">
-      {showSidebarButton ? (
-        <IconButton
-          icon={<HamburgerIcon w={8} h={8} />}
-          colorScheme="whiteAlpha"
-          variant="solid"
-          onClick={onShowSidebar}
-          aria-label="Search database"
-          bg={lightBlue}
-          mx="30px"
-          color={darkBlue}
-        />
-      ) : (
+      {!showSidebarButton && (
         <Box ml="50px">
           <IconLogoHeader />
         </Box>
       )}
-      {!showSidebarButton && (
-        <Flex w="60%" justifyContent="space-around">
+      {showSidebarButton && (
+        <Flex w={['100%', '100%', '60%']} justifyContent="space-around">
+          {showSidebarButton && (
+            <IconButton
+              icon={<IconMenu />}
+              onClick={onShowSidebar}
+              aria-label="Search database"
+              bg={darkBlue}
+            />
+          )}
           {headerImages.map((i) => (
             <Flex alignItems="center" key={i.id}>
-              {i.image}
-              <Text fontSize="24px" color="white" paddingLeft="10px" fontWeight="700">
+              {i.id === 1 && (
+                <IconRuby
+                  width={showSidebarButton ? '35px' : '30px'}
+                  height={showSidebarButton ? '35px' : '30px'}
+                />
+              )}
+              {i.id === 2 && (
+                <IconShip
+                  width={showSidebarButton ? '35px' : '30px'}
+                  height={showSidebarButton ? '35px' : '30px'}
+                />
+              )}
+              {i.id === 3 && (
+                <IconBasket
+                  width={showSidebarButton ? '35px' : '30px'}
+                  height={showSidebarButton ? '35px' : '30px'}
+                />
+              )}
+              <Text
+                fontSize={['14px', null, '24px']}
+                color="white"
+                paddingLeft="10px"
+                fontWeight="bold"
+              >
                 {i.value}
               </Text>
             </Flex>
           ))}
         </Flex>
       )}
-      {/* {userAddress ? (
-        <ConnectAddress userAddress={userAddress} />
-      ) : ( */}
-      {/* <ConnectButton onClick={connect} /> */}
-      <Box mr="50px">
-        <Button
-          text="Connect wallet"
-          px="10px"
-          colors={{
-            main: gold,
-            hover: goldHover,
-            active: goldPressed,
-            disabled: goldDisabled,
-          }}
-        />
-      </Box>
-      {/* )} */}
+      {!showSidebarButton && (
+        <Box mr="50px">
+          <Button
+            text="Connect wallet"
+            px="10px"
+            colors={{
+              main: gold,
+              hover: goldHover,
+              active: goldPressed,
+              disabled: goldDisabled,
+            }}
+          />
+        </Box>
+      )}
     </Flex>
   );
 };

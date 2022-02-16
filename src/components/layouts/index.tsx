@@ -25,7 +25,7 @@ export const LandingLayout: React.FC<LandingLayoutProps> = (props) => {
 
   return (
     <Flex direction="column" minH="100vh">
-      <Box flex="0 0 85px">
+      <Box flex={['0 0 64px', '0 0 64px', '0 0 85px']}>
         <Header showSidebarButton={variants?.navigationButton} onShowSidebar={toggleSidebar} />
       </Box>
       <Flex direction="row" flex="1">
