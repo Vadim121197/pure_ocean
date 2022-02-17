@@ -20,7 +20,7 @@ export const PriceCard: React.FC<PriceCardProps & FlexProps> = (props) => {
     <Flex
       flexDirection="column"
       bgColor={darkBlue}
-      borderRadius="5px"
+      borderRadius="3px"
       color="white"
       p={['15px 9px 15px 12px', null, '30px 5px']}
       fontStyle="normal"

@@ -70,27 +70,13 @@ export const Home: React.FC = () => {
       <Flex w="100%" flexWrap="wrap" justifyContent="space-between" my={['15px', null, '50px']}>
         {prices.map((i) => (
           <PriceCard
+            key={i.header}
             data={i}
             w={['100%', null, 'calc(1/3*100% - (1 - 1/3)*20px)']}
             minW="300px"
             m={['0 0 3px', null, '0 0 20px']}
           />
         ))}
-        {/* <PriceCard
-          w={['100%', null, 'calc(1/3*100% - (1 - 1/3)*20px)']}
-          minW="300px"
-          m={['0 0 3px', null, '0 0 20px']}
-        />
-        <PriceCard
-          w={['100%', null, 'calc(1/3*100% - (1 - 1/3)*20px)']}
-          minW="300px"
-          m={['0 0 3px', null, '0 0 20px']}
-        />
-        <PriceCard
-          w={['100%', null, 'calc(1/3*100% - (1 - 1/3)*20px)']}
-          minW="300px"
-          m={['0 0 3px', null, '0 0 20px']}
-        /> */}
       </Flex>
       <Text
         fontSize={['16px', null, '18px']}

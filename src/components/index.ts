@@ -3,3 +3,4 @@ export * from './SidebarLink';
 export * from './ConnectAddress';
 export * from './Button';
 export * from './PriceCard';
+export * from './GetPhareCard';
