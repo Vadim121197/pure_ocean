@@ -1,25 +1,17 @@
 import React, { useState } from 'react';
-import { Box, Flex, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { Header, Sidebar } from '../../containers';
 import background from '../../assets/images/background.png';
+import { useBreakpointValueHook } from '../../hooks';
 
 export type LandingLayoutProps = {
   children: React.ReactNode;
 };
 
-type Variant = {
-  navigation: 'drawer' | 'sidebar';
-  navigationButton: boolean;
-};
-
-const smVariant: Variant = { navigation: 'drawer', navigationButton: true };
-const mdVariant: Variant = { navigation: 'sidebar', navigationButton: false };
-
-export const LandingLayout: React.FC<LandingLayoutProps> = (props) => {
-  const { children } = props;
+export const LandingLayout: React.FC<LandingLayoutProps> = ({ children }) => {
+  const variants = useBreakpointValueHook();
 
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
-  const variants = useBreakpointValue({ base: smVariant, md: smVariant, lg: mdVariant });
 
   const toggleSidebar = () => setSidebarOpen((state) => !state);
 
