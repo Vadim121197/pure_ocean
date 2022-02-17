@@ -22,3 +22,5 @@ import { ReactComponent as LogoMenu } from './menu.svg';
 export const IconMenu = (props: React.SVGProps<SVGSVGElement>) => <LogoMenu {...props} />;
 import { ReactComponent as LogoUSDC } from './usdc.svg';
 export const IconUSDC = (props: React.SVGProps<SVGSVGElement>) => <LogoUSDC {...props} />;
+import { ReactComponent as LogoClose } from './close.svg';
+export const IconClose = (props: React.SVGProps<SVGSVGElement>) => <LogoClose {...props} />;

@@ -1,9 +1,9 @@
 import { AspectRatio, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
-import { GetPhareCard } from '../../components';
 import { darkBlue } from '../../constants';
+import { GetPShareSteps } from '../../containers';
 
-export const GetShare: React.FC = () => {
+const GetPShare: React.FC = () => {
   return (
     <Flex
       flexDirection="column"
@@ -24,24 +24,7 @@ export const GetShare: React.FC = () => {
       >
         How to get a PSHARE?
       </Text>
-      <Flex
-        w="100%"
-        flexDirection={['column', null, 'row']}
-        justifyContent="space-between"
-        flexWrap="wrap"
-        mt={['0px', null, '45px']}
-      >
-        <GetPhareCard
-          w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*25px)']}
-          minW="300px"
-          m={['35px 0 0', null, '0 0 25px']}
-        />
-        <GetPhareCard
-          w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*25px)']}
-          minW="300px"
-          m={['35px 0 0', null, '0 0 25px']}
-        />
-      </Flex>
+      <GetPShareSteps />
       <Text
         fontSize={['16px', null, '24px']}
         py={['15px', null, '13px']}
@@ -60,3 +43,5 @@ export const GetShare: React.FC = () => {
     </Flex>
   );
 };
+
+export default GetPShare;

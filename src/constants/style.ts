@@ -8,3 +8,18 @@ export const disableText = '#686868';
 export const blueHover = '#04BFF5';
 export const bluePressed = '#22CDFF';
 export const white = '#FFFFFF';
+export const greyColor = '#BBBAE1';
+
+export const blueButton = {
+  main: lightBlue,
+  hover: blueHover,
+  active: bluePressed,
+  disabled: goldDisabled,
+};
+
+export const whiteButton = {
+  main: white,
+  hover: white,
+  active: white,
+  disabled: white,
+};

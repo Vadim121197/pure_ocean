@@ -10,7 +10,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { headerImages } from '..';
-import { IconDocs, IconHistory, IconLogoHeader, IconRuby } from '../../assets/icons';
+import { IconDocs, IconHistory, IconHome, IconRuby } from '../../assets/icons';
 import { SidebarLink } from '../../components';
 import { lightBlue, darkBlue, routes } from '../../constants';
 
@@ -22,7 +22,7 @@ export type SidebarProps = {
 
 const SidebarContent: React.FC = () => (
   <VStack align="flex-start" mt="50px">
-    <SidebarLink to={routes.MAIN} text="Home" logo={<IconDocs />} />
+    <SidebarLink to={routes.MAIN} text="Home" logo={<IconHome />} />
     <SidebarLink to={routes.SHARE} text="Get $PShare" logo={<IconRuby />} />
     <SidebarLink to={routes.REWARD} text="Get Reward" logo={<IconRuby />} />
     <SidebarLink to={routes.BOND} text="Get $PBond" logo={<IconRuby />} />

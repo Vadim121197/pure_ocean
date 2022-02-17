@@ -1,11 +1,19 @@
 import React from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
-import { blueHover, bluePressed, darkBlue, goldDisabled, lightBlue, white } from '../../constants';
+import {
+  blueHover,
+  bluePressed,
+  darkBlue,
+  goldDisabled,
+  lightBlue,
+  white,
+  whiteButton,
+} from '../../constants';
 import { Button, PriceCard } from '../../components';
 import { IconBasket, IconRuby, IconShip } from '../../assets/icons';
 import { useBreakpointValueHook } from '../../hooks';
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   const variants = useBreakpointValueHook();
   const isMobile = variants?.isMobile;
 
@@ -109,18 +117,11 @@ export const Home: React.FC = () => {
           />
         </Box>
         <Box w={['100%', 'auto', 'auto']}>
-          <Button
-            text="Stack $PShare"
-            border="1px solid #08AAD9"
-            colors={{
-              main: white,
-              hover: white,
-              active: white,
-              disabled: white,
-            }}
-          />
+          <Button text="Stack $PShare" border="1px solid #08AAD9" colors={whiteButton} />
         </Box>
       </Flex>
     </Flex>
   );
 };
+
+export default Home;
