@@ -8,19 +8,19 @@ export type PhareCardType = 'ruby' | 'ship';
 
 type GetPhareCardPropsType = {
   type: PhareCardType;
-  lefticon: boolean;
+  typeicon?: 'leftIcon' | 'centerIcon';
   children: React.ReactNode;
 };
 
 export const GetPhareCard: React.FC<GetPhareCardPropsType & FlexProps> = (props) => {
-  const { type, lefticon, children } = props;
+  const { type, typeicon = 'centerIcon', children } = props;
 
   const variants = useBreakpointValueHook();
   const isMobile = variants?.isMobile;
   return (
     <Flex
       flexDirection="column"
-      alignItems={lefticon ? 'none' : ['none', null, 'center']}
+      alignItems={typeicon === 'leftIcon' ? 'none' : ['none', null, 'center']}
       w="100%"
       borderRadius="3px"
       fontWeight="bold"
@@ -39,7 +39,7 @@ export const GetPhareCard: React.FC<GetPhareCardPropsType & FlexProps> = (props)
         position="absolute"
         mt="-20px"
         mb="20px"
-        ml={lefticon ? ['0px', null, '20px'] : ['0px', null, '-60px']}
+        ml={typeicon === 'leftIcon' ? ['0px', null, '20px'] : ['0px', null, '-60px']}
         w={['50px', null, '70px']}
         h={['50px', null, '70px']}
         borderRadius="50%"
@@ -60,7 +60,7 @@ export const GetPhareCard: React.FC<GetPhareCardPropsType & FlexProps> = (props)
         w={['50px', null, '70px']}
         h={['50px', null, '70px']}
         borderRadius="50%"
-        ml={lefticon ? ['40px', null, '70px'] : ['40px', null, '50px']}
+        ml={typeicon === 'leftIcon' ? ['40px', null, '70px'] : ['40px', null, '50px']}
         border="2px solid"
         borderColor={gold}
         px={['2px', null, '3px']}

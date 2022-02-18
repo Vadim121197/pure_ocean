@@ -24,7 +24,7 @@ export const StackLPTokensModal: React.FC<StackLPTokensModalPropsType> = ({
     <Modal isCentered isOpen={isOpen} onClose={onClose}>
       <ModalOverlay bg="rgba(47, 65, 70, 0.8)" />
       <ModalContent w={['calc(100% - 24px)']}>
-        <GetPhareCard type={type} w={['100%', null, '100%']} lefticon px="0px">
+        <GetPhareCard type={type} w={['100%', null, '100%']} typeicon="leftIcon" px="0px">
           <IconButton
             w="17.5px"
             h="17.5px"

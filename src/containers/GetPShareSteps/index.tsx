@@ -52,7 +52,7 @@ export const GetPShareSteps: React.FC = () => {
             w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*25px)']}
             minW="300px"
             m={['35px 0 0', null, '0 0 25px']}
-            lefticon={Boolean(step.ruby)}
+            typeicon={step.ruby ? 'leftIcon' : 'centerIcon'}
           >
             {rubyChildren[step.ruby]}
           </GetPhareCard>
@@ -63,7 +63,7 @@ export const GetPShareSteps: React.FC = () => {
             w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*25px)']}
             minW="300px"
             m={['35px 0 0', null, '0 0 25px']}
-            lefticon={Boolean(step.ship)}
+            typeicon={step.ship ? 'leftIcon' : 'centerIcon'}
           >
             {rubyChildren[step.ship]}
           </GetPhareCard>

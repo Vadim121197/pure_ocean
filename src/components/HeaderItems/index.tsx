@@ -18,12 +18,12 @@ export const headerImages = [
 ];
 
 type HeaderItemsPropsType = {
-  iconWidth?: string;
+  iconwidth?: string;
   orientation?: 'vertical' | 'horisontal';
 };
 
 export const HeaderItems: React.FC<FlexProps & HeaderItemsPropsType> = (props) => {
-  const { orientation = 'horisontal', iconWidth = '35px' } = props;
+  const { orientation = 'horisontal', iconwidth = '35px' } = props;
   return (
     <>
       {headerImages.map((i) => (
@@ -33,9 +33,9 @@ export const HeaderItems: React.FC<FlexProps & HeaderItemsPropsType> = (props) =
           pb={orientation === 'vertical' ? '14px' : '0px'}
           {...props}
         >
-          {i.id === 1 && <IconRuby width={iconWidth} height={iconWidth} />}
-          {i.id === 2 && <IconShip width={iconWidth} height={iconWidth} />}
-          {i.id === 3 && <IconBasket width={iconWidth} height={iconWidth} />}
+          {i.id === 1 && <IconRuby width={iconwidth} height={iconwidth} />}
+          {i.id === 2 && <IconShip width={iconwidth} height={iconwidth} />}
+          {i.id === 3 && <IconBasket width={iconwidth} height={iconwidth} />}
           <Text
             fontSize={orientation === 'vertical' ? ['14px', null, '18px'] : ['14px', null, '24px']}
             color="white"

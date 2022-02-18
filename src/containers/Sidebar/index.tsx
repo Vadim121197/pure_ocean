@@ -71,7 +71,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) =>
           alignItems="center"
           justifyContent="flex-start"
           orientation="vertical"
-          iconWidth="35px"
+          iconwidth="35px"
         />
       </Box>
     </Box>
@@ -90,7 +90,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) =>
                 onClick={onClose}
                 variant="unstyled"
               />
-              <HeaderItems iconWidth="30px" />
+              <HeaderItems iconwidth="30px" />
             </Flex>
             <SidebarContent />
             <Box mt="30px">
@@ -98,7 +98,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) =>
                 alignItems="center"
                 justifyContent="flex-start"
                 orientation="vertical"
-                iconWidth="20px"
+                iconwidth="20px"
               />
             </Box>
           </DrawerBody>
