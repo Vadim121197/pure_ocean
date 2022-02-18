@@ -15,8 +15,6 @@ export const GetPShareSteps: React.FC = () => {
   const [step, setStep] = useState<{ ruby: number; ship: number }>({ ruby: 0, ship: 0 });
   const [openModal, setOpenModal] = useState<PhareCardType | null>(null);
 
-  console.log(step);
-
   const handleCloseModal = () => {
     setOpenModal(null);
     onClose();

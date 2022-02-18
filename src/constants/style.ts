@@ -23,3 +23,10 @@ export const whiteButton = {
   active: white,
   disabled: white,
 };
+
+export const goldButton = {
+  main: gold,
+  hover: goldHover,
+  active: goldPressed,
+  disabled: goldDisabled,
+};

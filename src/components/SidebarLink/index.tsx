@@ -14,16 +14,17 @@ export const SidebarLink: React.FC<SidebarLinkProps> = ({ text, to, logo }) => {
   const isActive = pathname === to;
 
   return (
-    <Link as={RouteLink} to={to} textAlign="start" paddingBottom="40px">
+    <Link as={RouteLink} to={to} textAlign="start" pb={['16px', null, '25px']}>
       <Flex alignItems="center">
-        <Box w="35px" h="35px">
+        <Box w={['20px', null, '35px']} h={['20px', null, '35px']}>
           {logo}
         </Box>
         <Text
-          pl="20px"
+          pl={['15px', null, '20px']}
           bgGradient={isActive ? 'linear(#CD7312, #FBC850)' : 'linear(#FFFFFF, #FFFFFF)'}
           bgClip="text"
-          fontSize="20px"
+          fontSize={['18px', null, '20px']}
+          fontWeight="700"
           textDecoration={isActive ? 'underline' : 'none'}
           textDecorationColor={gold}
           _hover={{ textDecoration: !isActive && 'underline', color: !isActive && 'white' }}
