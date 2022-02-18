@@ -6,3 +6,4 @@ export * from './PriceCard';
 export * from './GetPhareCard';
 export * from './GetPShareZeroStep';
 export * from './Modals/StackLPTokensModal';
+export * from './Input';

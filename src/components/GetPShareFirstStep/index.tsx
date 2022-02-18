@@ -1,13 +1,22 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
-import React from 'react';
-import { Button } from '..';
+import React, { MouseEventHandler } from 'react';
+import { Button, Input, PhareCardType } from '..';
 import { blueButton, darkBlue, greyColor, whiteButton } from '../../constants';
+import GetPShareStepsContext from '../../context/GetPShareStepsContext';
 
 type GetPShareFirstStepPropsType = {
-  buttonText: string;
+  buttonText?: string;
+  onButtonClick?: (
+    v: number,
+    type: PhareCardType,
+  ) => MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
-export const GetPShareFirstStep: React.FC<GetPShareFirstStepPropsType> = ({ buttonText }) => {
+export const GetPShareFirstStep: React.FC<GetPShareFirstStepPropsType> = ({
+  buttonText,
+  onButtonClick,
+}) => {
+  const context = React.useContext(GetPShareStepsContext);
   return (
     <Flex w="100%" flexDirection="column" fontWeight="700">
       <Flex
@@ -39,7 +48,11 @@ export const GetPShareFirstStep: React.FC<GetPShareFirstStepPropsType> = ({ butt
         <Text mb="15px" fontSize={['16px', null, '18px']}>
           Pure - USDC LP Stacked
         </Text>
-        <Button text={buttonText} colors={blueButton} />
+        {buttonText && onButtonClick ? (
+          <Button text={buttonText} colors={blueButton} onClick={onButtonClick(2, context.type)} />
+        ) : (
+          <Input placeholder="Enter number" />
+        )}
       </Flex>
       <Flex
         flexDirection="row"

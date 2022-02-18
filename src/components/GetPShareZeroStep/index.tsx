@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
-import { Button } from '..';
+import { Button, PhareCardType } from '..';
 import { blueButton } from '../../constants';
+import GetPShareStepsContext from '../../context/GetPShareStepsContext';
 
-export const GetPShareZeroStep: React.FC = () => {
+type GetPShareZeroStepPropsType = {
+  handleChangeStep: (
+    v: number,
+    type: PhareCardType,
+  ) => MouseEventHandler<HTMLButtonElement> | undefined;
+};
+
+export const GetPShareZeroStep: React.FC<GetPShareZeroStepPropsType> = ({ handleChangeStep }) => {
+  const context = React.useContext(GetPShareStepsContext);
+
   return (
     <>
       <Flex
@@ -39,7 +49,7 @@ export const GetPShareZeroStep: React.FC = () => {
           <Text fontSize="14px">300% APR</Text>
         </Flex>
       </Flex>
-      <Button text="Get $PShare" colors={blueButton} />
+      <Button text="Get $PShare" colors={blueButton} onClick={handleChangeStep(1, context.type)} />
     </>
   );
 };
