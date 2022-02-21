@@ -24,7 +24,7 @@ const SidebarContent: React.FC = () => {
   const isMobile = variants?.isMobile;
 
   return (
-    <VStack align="flex-start" mt={['10px', null, '50px']}>
+    <VStack align="flex-start" mt={['74px', '74px', '74px', '50px']}>
       {isMobile && <Button text="Connect wallet" colors={goldButton} mb="10px" />}
       <SidebarLink
         to={routes.MAIN}
@@ -77,10 +77,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) =>
     </Box>
   ) : (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-      <DrawerOverlay bg="rgba(47, 65, 70, 0.8)">
-        <DrawerContent w="315px">
+      <DrawerOverlay position="relative" zIndex="50" bg="rgba(47, 65, 70, 0.8)">
+        <DrawerContent w="315px" position="relative" zIndex="50">
           <DrawerBody bg={darkBlue} px="16px">
-            <Flex h="64px" alignItems="center" justifyContent="space-between">
+            {/* <Flex h="64px" alignItems="center" justifyContent="space-between">
               <IconButton
                 w="30px"
                 h="30px"
@@ -91,7 +91,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) =>
                 variant="unstyled"
               />
               <HeaderItems iconwidth="30px" />
-            </Flex>
+            </Flex> */}
             <SidebarContent />
             <Box mt="30px">
               <HeaderItems

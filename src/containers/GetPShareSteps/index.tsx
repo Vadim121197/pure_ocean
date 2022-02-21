@@ -49,9 +49,9 @@ export const GetPShareSteps: React.FC = () => {
         <GetPShareStepsProvider value={{ type: 'ruby' }}>
           <GetPhareCard
             type="ruby"
-            w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*25px)']}
-            minW="300px"
-            m={['35px 0 0', null, '0 0 25px']}
+            w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*10px)', 'calc(1/2*100% - (1 - 1/2)*25px)']}
+            minW="200px"
+            m={['35px 0 0', null, '0 0 10px', '0 0 25px']}
             typeicon={step.ruby ? 'leftIcon' : 'centerIcon'}
           >
             {rubyChildren[step.ruby]}
@@ -60,9 +60,9 @@ export const GetPShareSteps: React.FC = () => {
         <GetPShareStepsProvider value={{ type: 'ship' }}>
           <GetPhareCard
             type="ship"
-            w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*25px)']}
-            minW="300px"
-            m={['35px 0 0', null, '0 0 25px']}
+            w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*10px)', 'calc(1/2*100% - (1 - 1/2)*25px)']}
+            minW="200px"
+            m={['35px 0 0', null, '0 0 10px', '0 0 25px']}
             typeicon={step.ship ? 'leftIcon' : 'centerIcon'}
           >
             {rubyChildren[step.ship]}

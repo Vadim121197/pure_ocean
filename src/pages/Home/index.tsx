@@ -51,7 +51,7 @@ const Home: React.FC = () => {
       flexDirection="column"
       alignItems="center"
       h="100%"
-      p={['15px 10px 30px', null, '50px 50px 70px']}
+      p={['15px 10px 30px', '15px 10px 30px', '50px 50px 70px']}
     >
       <Flex
         flexDirection="column"
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
         justifyContent="center"
         bgColor={darkBlue}
         w="100%"
-        py={['15px', null, '20px']}
+        py={['15px', '15px', '20px']}
         borderRadius="3px"
       >
         <Text fontSize={['16px', null, '24px']} fontWeight="700" color="white" mb="15px">
@@ -80,9 +80,14 @@ const Home: React.FC = () => {
           <PriceCard
             key={i.header}
             data={i}
-            w={['100%', null, 'calc(1/3*100% - (1 - 1/3)*20px)']}
-            minW="300px"
-            m={['0 0 3px', null, '0 0 20px']}
+            w={[
+              '100%',
+              '100%',
+              'calc(1/3*100% - (1 - 1/3)*5px)',
+              'calc(1/3*100% - (1 - 1/3)*20px)',
+            ]}
+            minW="100px"
+            m={['0 0 3px', '0 0 3px', '0 0 5px', '0 0 20px']}
           />
         ))}
       </Flex>
