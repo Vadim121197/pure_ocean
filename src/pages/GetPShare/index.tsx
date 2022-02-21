@@ -1,5 +1,6 @@
 import { AspectRatio, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
+import { PageHeader } from '../../components';
 import { darkBlue } from '../../constants';
 import { GetPShareSteps } from '../../containers';
 
@@ -14,16 +15,7 @@ const GetPShare: React.FC = () => {
       color="white"
       p={['15px 10px 30px', null, '50px 50px 70px']}
     >
-      <Text
-        fontSize={['16px', null, '24px']}
-        py={['15px', null, '13px']}
-        bgColor={darkBlue}
-        w="100%"
-        textAlign="center"
-        borderRadius="3px"
-      >
-        How to get a PSHARE?
-      </Text>
+      <PageHeader text="How to get a PSHARE?" />
       <GetPShareSteps />
       <Text
         fontSize={['16px', null, '24px']}

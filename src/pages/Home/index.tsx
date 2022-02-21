@@ -6,7 +6,6 @@ import {
   darkBlue,
   goldDisabled,
   lightBlue,
-  white,
   whiteButton,
 } from '../../constants';
 import { Button, PriceCard } from '../../components';

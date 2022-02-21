@@ -1,14 +1,5 @@
-import {
-  Box,
-  Drawer,
-  DrawerOverlay,
-  DrawerBody,
-  DrawerContent,
-  VStack,
-  Flex,
-  IconButton,
-} from '@chakra-ui/react';
-import { IconClose, IconDocs, IconHistory, IconHome, IconRuby } from '../../assets/icons';
+import { Box, Drawer, DrawerOverlay, DrawerBody, DrawerContent, VStack } from '@chakra-ui/react';
+import { IconDocs, IconHistory, IconHome, IconRuby } from '../../assets/icons';
 import { Button, HeaderItems, SidebarLink } from '../../components';
 import { darkBlue, routes, goldButton } from '../../constants';
 import { useBreakpointValueHook } from '../../hooks';
@@ -80,18 +71,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, variant, onClose }) =>
       <DrawerOverlay position="relative" zIndex="50" bg="rgba(47, 65, 70, 0.8)">
         <DrawerContent w="315px" position="relative" zIndex="50">
           <DrawerBody bg={darkBlue} px="16px">
-            {/* <Flex h="64px" alignItems="center" justifyContent="space-between">
-              <IconButton
-                w="30px"
-                h="30px"
-                aria-label="Close modal"
-                icon={<IconClose />}
-                bgColor={darkBlue}
-                onClick={onClose}
-                variant="unstyled"
-              />
-              <HeaderItems iconwidth="30px" />
-            </Flex> */}
             <SidebarContent />
             <Box mt="30px">
               <HeaderItems

@@ -8,3 +8,6 @@ export * from './GetPShareZeroStep';
 export * from './Modals/StackLPTokensModal';
 export * from './Input';
 export * from './HeaderItems';
+export * from './PageHeader';
+export * from './RewardCard';
+export * from './GetRewardStepsFirstStep';
