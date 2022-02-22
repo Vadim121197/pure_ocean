@@ -23,7 +23,7 @@ export const SidebarLink: React.FC<SidebarLinkProps> = ({ text, to, logo }) => {
           pl={['15px', '15px', '20px']}
           bgGradient={isActive ? 'linear(#CD7312, #FBC850)' : 'linear(#FFFFFF, #FFFFFF)'}
           bgClip="text"
-          fontSize={['18px', '18px', '20px', '20px']}
+          fontSize={['18px', '20px']}
           fontWeight="700"
           textDecoration={isActive ? 'underline' : 'none'}
           textDecorationColor={gold}

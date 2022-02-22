@@ -11,3 +11,4 @@ export * from './HeaderItems';
 export * from './PageHeader';
 export * from './RewardCard';
 export * from './GetRewardStepsFirstStep';
+export * from './GetRewardStepsSecondStep';

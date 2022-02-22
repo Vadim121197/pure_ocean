@@ -20,7 +20,8 @@ export const GetPShareSteps: React.FC = () => {
     onClose();
   };
 
-  const handleChangeStep = (v: number, type: PhareCardType) => () => {
+  const handleChangeStep = (v: number, type?: PhareCardType) => () => {
+    if (!type) return;
     setStep((state) => ({ ...state, [type]: v }));
     if (v === 3) handleCloseModal();
   };
@@ -74,6 +75,8 @@ export const GetPShareSteps: React.FC = () => {
           isOpen={isOpen}
           onClose={handleCloseModal}
           type={openModal}
+          headerText="Stack LP Tokens"
+          textContent="Pure - USDC LP"
           handleChangeStep={handleChangeStep}
         />
       )}

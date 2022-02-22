@@ -1,9 +1,15 @@
 import { Flex, Text } from '@chakra-ui/react';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { Button, Input } from '..';
 import { blueButton, darkBlue } from '../../constants';
 
-export const GetRewardStepsFirstStep: React.FC = () => {
+type GetRewardStepsFirstStepPropsType = {
+  onButtonClick: (v: number) => MouseEventHandler<HTMLButtonElement>;
+};
+
+export const GetRewardStepsFirstStep: React.FC<GetRewardStepsFirstStepPropsType> = ({
+  onButtonClick,
+}) => {
   return (
     <Flex
       flexDirection="column"
@@ -49,7 +55,7 @@ export const GetRewardStepsFirstStep: React.FC = () => {
         <Text pb={['20px', '24px']} fontSize={['14px', '18px']} fontWeight="400">
           = $23287,23
         </Text>
-        <Button text="Stack LP" colors={blueButton} />
+        <Button text="Stack LP" colors={blueButton} onClick={onButtonClick(1)} />
       </Flex>
     </Flex>
   );

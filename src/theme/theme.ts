@@ -5,4 +5,7 @@ export const theme = extendTheme({
     heading: 'Source Sans Pro',
     body: 'Source Sans Pro',
   },
+  textStyles: {
+    rt: {},
+  },
 });

@@ -6,17 +6,21 @@ import { blueButton, darkBlue, whiteButton } from '../../../constants';
 
 type StackLPTokensModalPropsType = {
   isOpen: boolean;
-  type: PhareCardType;
+  type?: PhareCardType;
+  headerText: string;
+  textContent: string;
   onClose: () => void;
   handleChangeStep: (
     v: number,
-    type: PhareCardType,
+    type?: PhareCardType,
   ) => MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
 export const StackLPTokensModal: React.FC<StackLPTokensModalPropsType> = ({
   isOpen,
   type,
+  headerText,
+  textContent,
   onClose,
   handleChangeStep,
 }) => {
@@ -40,7 +44,7 @@ export const StackLPTokensModal: React.FC<StackLPTokensModalPropsType> = ({
           <Flex flexDirection="column" fontWeight="700">
             <Box
               w="100%"
-              pt={['44px', null, '60px']}
+              pt={type ? '44px' : '25px'}
               pb={['15px', null, '25px']}
               borderBottom="3px solid"
               borderColor="transparent"
@@ -48,7 +52,7 @@ export const StackLPTokensModal: React.FC<StackLPTokensModalPropsType> = ({
             linear-gradient(225deg, #CD7312, #FBC850) border-box`}
             >
               <Text px={['12px', null, '20px']} fontSize={['16px', null, '24px']}>
-                Stack LP Tokens
+                {headerText}
               </Text>
             </Box>
             <Flex
@@ -76,7 +80,7 @@ export const StackLPTokensModal: React.FC<StackLPTokensModalPropsType> = ({
                 <Text pb={['10px', null, '28px']} fontSize={['16px', null, '18px']}>
                   Balance: 0
                 </Text>
-                <Text fontSize={['16px', null, '18px']}>Pure - USDC LP</Text>
+                <Text fontSize={['16px', null, '18px']}>{textContent}</Text>
               </Flex>
             </Flex>
           </Flex>
