@@ -12,3 +12,4 @@ export * from './PageHeader';
 export * from './RewardCard';
 export * from './GetRewardStepsFirstStep';
 export * from './GetRewardStepsSecondStep';
+export * from './PBondCard';
