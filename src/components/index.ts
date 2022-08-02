@@ -13,3 +13,5 @@ export * from './RewardCard';
 export * from './GetRewardStepsFirstStep';
 export * from './GetRewardStepsSecondStep';
 export * from './PBondCard';
+export * from './GetPBondZeroStep';
+export * from './BalanceCard';

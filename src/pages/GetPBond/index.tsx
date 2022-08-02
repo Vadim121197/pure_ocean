@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import React from 'react';
 import { PageHeader, PBondCard } from '../../components';
+import { GetPBondSteps } from '../../containers';
 
 const getPBondValue = [
   {
@@ -29,7 +30,7 @@ const GetPBond: React.FC = () => {
         w="100%"
         flexWrap="wrap"
         justifyContent="space-between"
-        mb={['15px', null, '0']}
+        mb={['0px', null, '0']}
         mt={['15px', null, '25px']}
       >
         {getPBondValue.map((i, index) => (
@@ -43,6 +44,7 @@ const GetPBond: React.FC = () => {
           />
         ))}
       </Flex>
+      <GetPBondSteps />
     </Flex>
   );
 };

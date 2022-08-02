@@ -1,6 +1,6 @@
 import { Box, Flex, IconButton, Modal, ModalContent, ModalOverlay, Text } from '@chakra-ui/react';
 import React, { MouseEventHandler } from 'react';
-import { Button, GetPhareCard, PhareCardType } from '../..';
+import { BalanceCard, Button, GetPhareCard, PhareCardType } from '../..';
 import { IconClose } from '../../../assets/icons';
 import { blueButton, darkBlue, whiteButton } from '../../../constants';
 
@@ -55,7 +55,8 @@ export const StackLPTokensModal: React.FC<StackLPTokensModalPropsType> = ({
                 {headerText}
               </Text>
             </Box>
-            <Flex
+            <BalanceCard leftTopText="Stack" leftBottomText="0.000" rightBottomText={textContent} />
+            {/* <Flex
               justifyContent="space-between"
               my={['10px', null, '24px']}
               mx={['12px', null, '20px']}
@@ -82,7 +83,7 @@ export const StackLPTokensModal: React.FC<StackLPTokensModalPropsType> = ({
                 </Text>
                 <Text fontSize={['16px', null, '18px']}>{textContent}</Text>
               </Flex>
-            </Flex>
+            </Flex> */}
           </Flex>
           <Flex
             justifyContent="space-between"
