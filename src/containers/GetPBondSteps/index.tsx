@@ -13,8 +13,8 @@ export const GetPBondSteps: React.FC = () => {
     setStep((state) => ({ ...state, [type]: v }));
 
   const childrens: ObjectTypeGeneric<React.ReactNode> = {
-    0: <GetPBondZeroStep onButtonClick={handleChangeStep} />,
-    1: <GetPBondZeroStep />,
+    // 0: <GetPBondZeroStep onButtonClick={handleChangeStep} pureToPBond />,
+    // 1: <GetPBondZeroStep />,
   };
 
   return (
