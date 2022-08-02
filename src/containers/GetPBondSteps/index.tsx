@@ -1,21 +1,20 @@
 import { Flex } from '@chakra-ui/react';
-import React, { useState } from 'react';
-import { GetPBondZeroStep, GetPhareCard } from '../../components';
-import { ObjectTypeGeneric } from '../../types';
+import React from 'react';
+import { GetPhareCard } from '../../components';
 
 export const GetPBondSteps: React.FC = () => {
-  const [step, setStep] = useState<{ pureToPBond: number; pBondToPure: number }>({
-    pureToPBond: 0,
-    pBondToPure: 0,
-  });
+  // const [step, setStep] = useState<{ pureToPBond: number; pBondToPure: number }>({
+  //   pureToPBond: 0,
+  //   pBondToPure: 0,
+  // });
 
-  const handleChangeStep = (v: number, type: 'pureToPBond' | 'pBondToPure') => () =>
-    setStep((state) => ({ ...state, [type]: v }));
+  // const handleChangeStep = (v: number, type: 'pureToPBond' | 'pBondToPure') => () =>
+  //   setStep((state) => ({ ...state, [type]: v }));
 
-  const childrens: ObjectTypeGeneric<React.ReactNode> = {
-    // 0: <GetPBondZeroStep onButtonClick={handleChangeStep} pureToPBond />,
-    // 1: <GetPBondZeroStep />,
-  };
+  // const childrens: ObjectTypeGeneric<React.ReactNode> = {
+  // 0: <GetPBondZeroStep onButtonClick={handleChangeStep} pureToPBond />,
+  // 1: <GetPBondZeroStep />,
+  // };
 
   return (
     <Flex
@@ -30,18 +29,18 @@ export const GetPBondSteps: React.FC = () => {
         w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*10px)', 'calc(1/2*100% - (1 - 1/2)*25px)']}
         minW="200px"
         m={['35px 0 0', null, '0 0 10px', '0 0 25px']}
-        typeicon={step.pureToPBond ? 'leftIcon' : 'centerIcon'}
+        // typeicon={step.pureToPBond ? 'leftIcon' : 'centerIcon'}
       >
-        {childrens[step.pureToPBond]}
+        {/* {childrens[step.pureToPBond]} */}
       </GetPhareCard>
       <GetPhareCard
         type="ruby"
         w={['100%', null, 'calc(1/2*100% - (1 - 1/2)*10px)', 'calc(1/2*100% - (1 - 1/2)*25px)']}
         minW="200px"
         m={['35px 0 0', null, '0 0 10px', '0 0 25px']}
-        typeicon={step.pureToPBond ? 'leftIcon' : 'centerIcon'}
+        // typeicon={step.pureToPBond ? 'leftIcon' : 'centerIcon'}
       >
-        {childrens[step.pBondToPure]}
+        {/* {childrens[step.pBondToPure]} */}
       </GetPhareCard>
       {/* <GetPShareStepsProvider value={{ type: 'ruby' }}>
         <GetPhareCard
